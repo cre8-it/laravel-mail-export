@@ -17,8 +17,6 @@ class ExportMessage
 
     /**
      * Create a new listener instance.
-     *
-     * @param  Factory  $filesystem
      */
     public function __construct(Factory $filesystem)
     {
@@ -27,8 +25,6 @@ class ExportMessage
 
     /**
      * Handles the Event when it happens while listening.
-     *
-     * @param  MessageSent  $event
      */
     public function handle(MessageSent $event)
     {
@@ -39,8 +35,6 @@ class ExportMessage
 
     /**
      * Finds out if whether we should store the mail or not.
-     *
-     * @return bool
      */
     protected function shouldStoreMessage(Email $message): bool
     {

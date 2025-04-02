@@ -12,7 +12,7 @@ use PodPoint\MailExport\StorageOptions;
 trait Exportable
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function send($mailer)
     {
@@ -33,9 +33,6 @@ trait Exportable
 
     /**
      * Tries to resolve storage options from an optional method and property.
-     *
-     * @param  string  $key
-     * @return string|null
      */
     private function exportOption(string $key): ?string
     {

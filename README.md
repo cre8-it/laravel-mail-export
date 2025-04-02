@@ -3,7 +3,8 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/pod-point/laravel-mail-export.svg?style=flat-square)](https://packagist.org/packages/pod-point/laravel-mail-export)
 [![tests](https://github.com/Pod-Point/laravel-mail-export/actions/workflows/run-tests.yml/badge.svg?branch=2.x)](https://github.com/Pod-Point/laravel-mail-export/actions/workflows/run-tests.yml)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Total Downloads](https://img.shields.io/packagist/dt/pod-point/laravel-mail-export.svg?style=flat-square)](https://packagist.org/packages/pod-point/laravel-mail-export)
+
+This is a Fork from [Pod-Point](https://github.com/Pod-Point/laravel-mail-export) to provide Support for laravel 12 and Carbon 3
 
 This package can export any mail sent with Laravel's `Mailable` class to any desired filesystem disk and path as a `.eml` file.
 
@@ -13,22 +14,10 @@ This can be useful when wanting to store emails sent for archive purposes.
 
 You can install the package via composer:
 
-For Laravel 9.x, 10.x, 11.x (requires PHP version 8.2 or higher)
+For Laravel 9.x, 10.x, 11.x, 12.x (requires PHP version 8.2 or higher)
 
 ```bash
-composer require pod-point/laravel-mail-export
-```
-
-For Laravel 7.x and 8.x
-
-```bash
-composer require pod-point/laravel-mail-export:^1.0
-```
-
-For Laravel 5.x and 6.x
-
-```bash
-composer require pod-point/laravel-mail-export:^0.1
+composer require cre8-it/laravel-mail-export
 ```
 
 ### Publishing the config file

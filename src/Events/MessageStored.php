@@ -28,8 +28,6 @@ class MessageStored
     /**
      * Create a new event instance.
      *
-     * @param  Email  $message
-     * @param  StorageOptions  $storageOptions
      * @return void
      */
     public function __construct(Email $message, StorageOptions $storageOptions)
