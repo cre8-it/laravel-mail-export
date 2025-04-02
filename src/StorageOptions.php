@@ -17,30 +17,20 @@ class StorageOptions
 
     const MIME_TYPE = 'message/rfc822';
 
-    /**
-     * @var string
-     */
-    public $disk;
+    public string $disk;
 
-    /**
-     * @var string
-     */
-    public $path;
+    public string $path;
 
-    /**
-     * @var string
-     */
-    public $filename;
+    public string $filename;
 
-    /**
-     * @var \Symfony\Component\Mime\Email
-     */
-    public $message;
+    public Email $message;
 
     /**
      * Declares the storage options for a specific \Symfony\Component\Mime\Email.
      * The only properties allowed are 'disk', 'path' and 'filename'. They all
      * are obviously optional.
+     *
+     * @param  array{disk: string, path: string, filename: string}  $properties
      */
     public function __construct(Email $message, array $properties = [])
     {
@@ -110,5 +100,13 @@ class StorageOptions
             'extension' => self::EXTENSION,
             'fullpath' => $this->fullpath(),
         ];
+    }
+
+    /**
+     * Encode the array value of this data transfer object to json
+     */
+    public function toJson(): string
+    {
+        return json_encode($this->toArray());
     }
 }

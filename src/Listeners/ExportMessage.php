@@ -26,7 +26,7 @@ class ExportMessage
     /**
      * Handles the Event when it happens while listening.
      */
-    public function handle(MessageSent $event)
+    public function handle(MessageSent $event): void
     {
         if ($this->shouldStoreMessage($event->message)) {
             $this->storeMessage($event->message);
@@ -38,20 +38,22 @@ class ExportMessage
      */
     protected function shouldStoreMessage(Email $message): bool
     {
-        return property_exists($message, '_storageOptions')
+        return $message->getHeaders()->has('X-Storage-Options')
             && config('mail-export.enabled', false);
     }
 
     /**
      * Actually stores the stringified version of the \Symfony\Component\Mime\Email
      * including headers, recipients, subject and body onto the filesystem disk.
-     *
-     * @return void
      */
-    private function storeMessage(Email $message)
+    private function storeMessage(Email $message): void
     {
-        /** @var StorageOptions $storageOptions */
-        $storageOptions = $message->_storageOptions;
+        $headers = $message->getHeaders();
+        if (! $headers->has('X-Storage-Options')) {
+            return;
+        }
+        $storageOptions = json_decode($headers->get('X-Storage-Options')->getBody(), true);
+        $storageOptions = new StorageOptions($message, $storageOptions);
 
         $this->filesystem
             ->disk($storageOptions->disk)
