@@ -12,23 +12,17 @@ class MessageStored
 
     /**
      * The message instance.
-     *
-     * @var \Symfony\Component\Mime\Email
      */
-    public $message;
+    public Email $message;
 
     /**
      * The filesystem storage options used to store the message including
      * the disk, the path and the filename with its extension.
-     *
-     * @var \PodPoint\MailExport\StorageOptions
      */
-    public $storageOptions;
+    public StorageOptions $storageOptions;
 
     /**
      * Create a new event instance.
-     *
-     * @return void
      */
     public function __construct(Email $message, StorageOptions $storageOptions)
     {

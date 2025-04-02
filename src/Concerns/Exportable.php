@@ -5,6 +5,8 @@ namespace PodPoint\MailExport\Concerns;
 use Illuminate\Mail\Mailable;
 use PodPoint\MailExport\Contracts\ShouldExport;
 use PodPoint\MailExport\StorageOptions;
+use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\Header\UnstructuredHeader;
 
 /**
  * @mixin Mailable
@@ -16,16 +18,18 @@ trait Exportable
      */
     public function send($mailer)
     {
-        $this->withSymfonyMessage(function ($message) {
+        $this->withSymfonyMessage(function (Email $message) {
             if (! $this instanceof ShouldExport) {
                 return;
             }
 
-            $message->_storageOptions = new StorageOptions($message, [
+            $storageOptions = (new StorageOptions($message, [
                 'disk' => $this->exportOption('exportDisk'),
                 'path' => $this->exportOption('exportPath'),
                 'filename' => $this->exportOption('exportFilename'),
-            ]);
+            ]))->toJson();
+
+            $message->getHeaders()->add(new UnstructuredHeader('X-Storage-Options', $storageOptions));
         });
 
         parent::send($mailer);
