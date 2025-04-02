@@ -12,12 +12,20 @@ This can be useful when wanting to store emails sent for archive purposes.
 
 ## Installation
 
-You can install the package via composer:
-
 For Laravel 9.x, 10.x, 11.x, 12.x (requires PHP version 8.2 or higher)
+Add the Fork to as a VCS repository to your `composer.json`
+```json
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/cre8-it/laravel-mail-export"
+        }
+    ],
+```
 
+After this you can require the package using composer
 ```bash
-composer require cre8-it/laravel-mail-export
+composer require pod-point/laravel-mail-export:@dev
 ```
 
 ### Publishing the config file
