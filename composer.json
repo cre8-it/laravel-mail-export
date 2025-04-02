@@ -1,5 +1,5 @@
 {
-    "name": "pod-point/laravel-mail-export",
+    "name": "cre8-it/laravel-mail-export",
     "description": "A mailable trait to export mails to a storage disk once being sent",
     "keywords": [
         "laravel",
@@ -8,7 +8,7 @@
         "archive",
         "backup"
     ],
-    "homepage": "https://github.com/pod-point/laravel-mail-export",
+    "homepage": "https://github.com/cre8-it/laravel-mail-export",
     "license": "MIT",
     "authors": [
         {
