@@ -14,6 +14,7 @@ use Symfony\Component\Mime\Email;
 class StorageOptions
 {
     const EXTENSION = 'eml';
+
     const MIME_TYPE = 'message/rfc822';
 
     /**
@@ -40,9 +41,6 @@ class StorageOptions
      * Declares the storage options for a specific \Symfony\Component\Mime\Email.
      * The only properties allowed are 'disk', 'path' and 'filename'. They all
      * are obviously optional.
-     *
-     * @param  Email  $message
-     * @param  array  $properties
      */
     public function __construct(Email $message, array $properties = [])
     {
@@ -58,8 +56,6 @@ class StorageOptions
 
     /**
      * Build the default storage disk using the config if none is provided by the developer.
-     *
-     * @return string
      */
     private function defaultDisk(): string
     {
@@ -68,8 +64,6 @@ class StorageOptions
 
     /**
      * Build the default storage path using the config if none is provided by the developer.
-     *
-     * @return string
      */
     private function defaultPath(): string
     {
@@ -79,8 +73,6 @@ class StorageOptions
     /**
      * Build some default value for the filename of the message we're about to store
      * so this can be used if none is provided by the developer.
-     *
-     * @return string
      */
     private function defaultFilename(): string
     {
@@ -100,8 +92,6 @@ class StorageOptions
 
     /**
      * Builds the full path we will store the file onto the disk.
-     *
-     * @return string
      */
     public function fullpath(): string
     {
@@ -110,8 +100,6 @@ class StorageOptions
 
     /**
      * Build some array representation of that data transfer object.
-     *
-     * @return array
      */
     public function toArray(): array
     {

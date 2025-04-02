@@ -16,7 +16,7 @@ use PodPoint\MailExport\Tests\TestCase;
 
 class MailExportTest extends TestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
