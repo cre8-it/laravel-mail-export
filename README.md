@@ -15,17 +15,32 @@ This can be useful when wanting to store emails sent for archive purposes.
 For Laravel 9.x, 10.x, 11.x, 12.x (requires PHP version 8.2 or higher)
 Add the Fork to as a VCS repository to your `composer.json`
 ```json
+{
     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/cre8-it/laravel-mail-export"
         }
-    ],
+    ]
+}
 ```
 
 After this you can require the package using composer
 ```bash
 composer require pod-point/laravel-mail-export:@dev
+```
+#
+Or update you dependency constraint to reference the target branch with a `dev-` prefix
+```json
+{
+    "require": {
+        "pod-point/laravel-mail-export": "dev-main"
+    }
+}
+```
+And update the package using composer
+```bash
+composer update pod-point/laravel-mail-export
 ```
 
 ### Publishing the config file
